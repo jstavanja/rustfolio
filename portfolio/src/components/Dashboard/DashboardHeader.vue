@@ -1,16 +1,17 @@
 <template>
   <el-menu class="dashboard-header" mode="horizontal">
-    <el-menu-item disabled index="1">Rustfolio Dashboard</el-menu-item>
-    <el-menu-item index="2" class="navbar-link-site-wrapper"><router-link to="/" class="navbar-link-site">Go to site</router-link></el-menu-item>
+    <el-menu-item active index="1" @click="routerNavigate('/dashboard')">Rustfolio Dashboard</el-menu-item>
+    <el-menu-item index="2" @click="routerNavigate('/')">Go to site</el-menu-item>
   </el-menu>
 </template>
 
-<style lang="less" scoped>
-.dashboard-header {
-  .navbar-link-site-wrapper {
-    .navbar-link-site {
-      height: 100%;
+<script>
+export default {
+  methods: {
+    // Because of styling issues, the routing had to be done programmatically (instead of using router-link)
+    routerNavigate (path) {
+      this.$router.push(path)
     }
   }
 }
-</style>
+</script>

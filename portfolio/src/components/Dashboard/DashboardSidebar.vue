@@ -1,6 +1,6 @@
 <template>
   <el-menu class="dashboard-sidebar" :collapse="isCollapse">
-    <el-menu-item index="1">
+    <el-menu-item index="1" @click="routerNavigate('/dashboard')">
       <i class="el-icon-menu"></i>
       <span slot="title">Dashboard home</span>
     </el-menu-item>
@@ -22,11 +22,11 @@
         <el-menu-item index="1-4-1" class="menu-item-custom-page-title">Meetup in Ljubljana 2018</el-menu-item>
       </el-submenu>
     </el-submenu>
-    <el-menu-item index="3">
+    <el-menu-item index="3" @click="routerNavigate('/dashboard/blog')">
       <i class="el-icon-edit"></i>
       <span slot="title">Blog</span>
     </el-menu-item>
-    <el-menu-item index="4">
+    <el-menu-item index="4" @click="routerNavigate('/dashboard/settings')">
       <i class="el-icon-setting"></i>
       <span slot="title">Settings</span>
     </el-menu-item>
@@ -42,7 +42,6 @@
 <style lang="less" scoped>
 .dashboard-sidebar {
   display: inline-block;
-  // Restraining the expanded with of the sidebar
   &:not(.el-menu--collapse) {
     width: 200px;
   }
@@ -61,6 +60,10 @@ export default {
     }
   },
   methods: {
+    // Because of styling issues, the routing had to be done programmatically (instead of using router-link)
+    routerNavigate (path) {
+      this.$router.push(path)
+    },
     toggleCollapse () {
       this.isCollapse = !this.isCollapse
     }
