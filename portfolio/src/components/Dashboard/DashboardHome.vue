@@ -59,7 +59,7 @@ export default {
       content: "";
     }
     .clearfix:after {
-      clear: both
+      clear: both;
     }
   }
 }

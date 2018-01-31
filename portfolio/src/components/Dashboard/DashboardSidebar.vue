@@ -66,7 +66,21 @@ export default {
     },
     toggleCollapse () {
       this.isCollapse = !this.isCollapse
+      // We also use a cookie to remember the state of the sidebar that the user prefers
+      const sidebarCookie = this.$cookie.get('dashboard-sidebar')
+      if (!sidebarCookie) {
+        this.$cookie.set('dashboard-sidebar', 'expanded', { expires: '1Y' })
+      } else {
+        if (sidebarCookie === 'expanded') {
+          this.$cookie.set('dashboard-sidebar', 'collapsed', { expires: '1Y' })
+        } else {
+          this.$cookie.set('dashboard-sidebar', 'expanded', { expires: '1Y' })
+        }
+      }
     }
+  },
+  created () {
+    this.isCollapse = this.$cookie.get('dashboard-sidebar') === 'collapsed' ? true : false;
   }
 }
 </script>
