@@ -80,7 +80,7 @@ export default {
     }
   },
   created () {
-    this.isCollapse = this.$cookie.get('dashboard-sidebar') === 'collapsed' ? true : false;
+    this.isCollapse = this.$cookie.get('dashboard-sidebar') === 'collapsed'
   }
 }
 </script>
