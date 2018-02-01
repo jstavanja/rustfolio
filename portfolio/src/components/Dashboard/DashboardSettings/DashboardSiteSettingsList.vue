@@ -18,3 +18,9 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.dashboard-site-setting-field {
+  margin-bottom: 20px;
+}
+</style>
