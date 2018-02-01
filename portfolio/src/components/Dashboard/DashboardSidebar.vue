@@ -39,19 +39,6 @@
   </el-menu>
 </template>
 
-<style lang="less" scoped>
-.dashboard-sidebar {
-  display: inline-block;
-  &:not(.el-menu--collapse) {
-    width: 200px;
-  }
-  .menu-item-custom-page-title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-</style>
-
 <script>
 export default {
   data () {
@@ -84,3 +71,17 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.dashboard-sidebar {
+  display: inline-block;
+  overflow: hidden;
+  &:not(.el-menu--collapse) {
+    width: 200px;
+  }
+  .menu-item-custom-page-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+</style>
