@@ -1,5 +1,5 @@
 <template>
-  <el-input :type="field.type" :value="field.value" v-if="field.type === 'text'">
+  <el-input :type="field.field_type" :value="field.value" v-if="field.field_type === 'text'">
     <template slot="prepend">
       {{ field.alias }}
     </template>

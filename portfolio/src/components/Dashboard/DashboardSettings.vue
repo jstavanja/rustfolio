@@ -8,35 +8,14 @@
 </template>
 
 <script>
+import axios from 'axios'
 import dashboardSiteSettingsList from './DashboardSettings/DashboardSiteSettingsList'
+
 export default {
   data () {
     return {
       // Dummy data
-      settingsFields: {
-        siteFields: [
-          {
-            name: 'title',
-            alias: 'Site title',
-            type: 'text',
-            value: 'Rustfolio test'
-          },
-          {
-            name: 'favicon',
-            alias: 'Favicon',
-            type: 'upload',
-            value: 'Some picture'
-          }
-        ],
-        otherFields: [
-          {
-            name: 'owner',
-            alias: 'Owner display name',
-            type: 'text',
-            value: 'Jaka S.'
-          }
-        ]
-      }
+      settingsFields: {}
     }
   },
   components: {
@@ -44,6 +23,11 @@ export default {
   },
   created () {
     // TODO: Fetch fields from the DB into a structure similar to settingsFields in data
+    axios.get('/dashboard/settings')
+      .then((response) => {
+        this.settingsFields = response.data
+        console.log(this.settingsFields)
+      })
   }
 }
 </script>
